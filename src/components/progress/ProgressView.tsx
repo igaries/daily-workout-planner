@@ -238,7 +238,9 @@ export function ProgressView({
                       </span>
                     </p>
                     <p className="mt-0.5 text-xs text-muted-foreground">
-                      {s.exercises.length} exercises · {setsDone} sets done
+                      {s.exercises.length} exercise
+                      {s.exercises.length === 1 ? "" : "s"} · {setsDone} set
+                      {setsDone === 1 ? "" : "s"} done
                       {s.exercises.some((e) => e.weights?.some((w) => w != null))
                         ? ` · ${unit}`
                         : ""}
