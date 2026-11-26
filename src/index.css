@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --radius: 0.875rem;
+
+  --color-background: oklch(0.985 0.01 150);
+  --color-foreground: oklch(0.22 0.03 150);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.22 0.03 150);
+  --color-primary: oklch(0.45 0.12 150);
+  --color-primary-foreground: oklch(0.98 0.01 150);
+  --color-secondary: oklch(0.94 0.02 150);
+  --color-secondary-foreground: oklch(0.28 0.04 150);
+  --color-muted: oklch(0.94 0.015 150);
+  --color-muted-foreground: oklch(0.48 0.03 150);
+  --color-destructive: oklch(0.55 0.2 25);
+  --color-border: oklch(0.88 0.02 150);
+  --color-ring: oklch(0.45 0.12 150);
+}
+
+@layer base {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: oklch(0.16 0.02 150);
+      --color-foreground: oklch(0.95 0.01 150);
+      --color-card: oklch(0.2 0.025 150);
+      --color-card-foreground: oklch(0.95 0.01 150);
+      --color-primary: oklch(0.64 0.13 150);
+      --color-primary-foreground: oklch(0.15 0.02 150);
+      --color-secondary: oklch(0.26 0.03 150);
+      --color-secondary-foreground: oklch(0.95 0.01 150);
+      --color-muted: oklch(0.26 0.025 150);
+      --color-muted-foreground: oklch(0.72 0.03 150);
+      --color-destructive: oklch(0.65 0.2 25);
+      --color-border: oklch(0.32 0.03 150);
+      --color-ring: oklch(0.64 0.13 150);
+    }
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    font-family: var(--font-sans);
+    background:
+      radial-gradient(
+        1200px 600px at 10% -10%,
+        color-mix(in oklch, var(--color-primary) 18%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 500px at 100% 0%,
+        color-mix(in oklch, var(--color-primary) 10%, transparent),
+        transparent 55%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in oklch, var(--color-primary) 6%, var(--color-background)),
+        var(--color-background) 40%
+      );
+    color: var(--color-foreground);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
