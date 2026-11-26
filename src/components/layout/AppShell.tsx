@@ -87,7 +87,7 @@ export function AppShell({
                 className={cn(
                   "flex min-h-11 min-w-[4.5rem] flex-col items-center justify-center gap-0.5 rounded-[var(--radius)] px-3 text-xs font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
                   selected
-                    ? "text-primary"
+                    ? "bg-primary/10 text-primary"
                     : "text-muted-foreground hover:text-foreground",
                 )}
               >
